@@ -31,3 +31,10 @@ The function f needs the following arguments:
   8. uint W
   9. uint H
   10. uint8_t* pixels (the buffer where you want to render)
+
+TODO:
+  clean up code
+  add ifs instead of inline ones to improve speed even further
+  
+
+If you use this in your projects, it'd be nice if you credited me, but optionnal. :)

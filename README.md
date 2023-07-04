@@ -1,4 +1,5 @@
 <img width="479" alt="Screenshot 2023-07-04 at 15 38 01" src="https://github.com/adrianvla/fast-filled-triangles/assets/86854740/93e1ce7a-ff5e-46cd-8023-2aff1dd969ea">
+
 This is a fixed point algorithm made to render filled triangles. (scanline, bresenham)
 
 How it works:

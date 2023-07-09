@@ -93,6 +93,9 @@ void drawTriangle(int x0, int y0, int x1, int y1, int x2, int y2, uint8_t r, uin
         x0=t0;
         y0=t1;
     }
+    printf("POINT 0:\n x0: %d\n y0: %d\n",x0,y0);
+    printf("POINT 1:\n x1: %d\n y1: %d\n",x1,y1);
+    printf("POINT 2:\n x2: %d\n y2: %d\n",x2,y2);
 
     int x,y,dx,dy,dx0,dy0,px,py,xe,ye,i;
     int _x,_y,_dx,_dy,_dx0,_dy0,_px,_py,_xe,_ye,_i;
@@ -286,8 +289,14 @@ void drawTriangle(int x0, int y0, int x1, int y1, int x2, int y2, uint8_t r, uin
                 px=px+2*(dy0-dx0);
             }
         }
-        for(U = x;U<hyp[y-y0]+(x2>=x0?x0:x2);U++){
-            (*f)(U,y,r,g,b,a,W,H,pixels);
+        if(x1>x2){
+            for(U = hyp[y-y0]+(x2>=x0?x0:x2);U<x;U++){
+                (*f)(U,y,r,g,b,a,W,H,pixels);
+            }
+        }else{
+            for(U = x;U<hyp[y-y0]+(x2>=x0?x0:x2);U++){
+                (*f)(U,y,r,g,b,a,W,H,pixels);
+            }
         }
     }
     _dx=x2-x1;
@@ -341,11 +350,17 @@ void drawTriangle(int x0, int y0, int x1, int y1, int x2, int y2, uint8_t r, uin
                 _px=_px+2*(_dy0-_dx0);
             }
         }
-
-        for(U = _x;U<hyp[_y-y0]+(x2>=x0?x0:x2);U++){
-            (*f)(U,_y,r,g,b,a,W,H,pixels);
+        if(x1>x2){
+            for(U = hyp[_y-y0]+(x2>=x0?x0:x2);U<_x;U++){
+                (*f)(U,_y,r,g,b,a,W,H,pixels);
+            }
+        }else{
+            for(U = _x;U<hyp[_y-y0]+(x2>=x0?x0:x2);U++){
+                (*f)(U,_y,r,g,b,a,W,H,pixels);
+            }
         }
     }
-
-
+    // drawline(x0,y0,x1,y1,0,255,0,255,W,H,pixels,f);
+    // drawline(x0,y0,x2,y2,0,255,0,255,W,H,pixels,f);
+    // drawline(x1,y1,x2,y2,0,255,0,255,W,H,pixels,f);
 }

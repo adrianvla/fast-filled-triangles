@@ -38,6 +38,3 @@ The function f needs the following arguments:
 TODO:
   clean up code
   add ifs instead of inline ones to improve speed even further
-  
-
-If you use this in your projects, it'd be nice if you credited me, but optionnal. :)
